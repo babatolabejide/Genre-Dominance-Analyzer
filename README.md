@@ -1,75 +1,149 @@
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-## Template Instructions
+## Genre Dominance Analyzer
 
-Welcome,
+The Genre Dominance Analyzer is a comprehensive data analysis tool designed to explore and visualize trends in video game genres from 1980 to 2023. Built with Python and Streamlit, this Data App provides an intuitive interface to uncover which genres have dominated the industry, how preferences have shifted over time, and which emerging genres show potential for growth. By delivering actionable insights, it aids game developers, publishers, and marketers in strategic planning for content development and marketing campaigns.
 
-This is the Code Institute student template for the Data Analytics capstone project. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+## Dataset Content
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+* Dataset: "Popular Video Games 1980 - 2023"
+* Source: Kaggle - Popular Video Games 1980-2023
+(https://www.kaggle.com/datasets/arnabchaki/popular-video-games-1980-2023)
+* Description: This dataset contains detailed information on top-rated video games from 1980 to 2023, including titles, release dates, genres, platforms, average ratings, and playtime metrics (e.g., average and median playtime). It is publicly available, anonymized, and suitable for analyzing historical and current trends in the gaming industry without privacy concerns.
 
-## How to use this repo
+## Business Requirements
 
-1. Use this template to create your GitHub project repo. Click the Use this template button, then click Create a new repository.
+1. Market Insight: Identify which video game genres have consistently dominated the industry.
+2. Track Genre Trends: Analyze how genre preferences have evolved across decades.
+3. Highlight Emerging Genres: Identify niche or emerging genres with rising ratings or playtime that could signal future opportunities.
+4. Support Strategic Decisions: Provide visual insights for game developers and marketers to plan content development and marketing strategies.
 
-1. Copy the URL of your repository to your clipboard.
+Key Questions:
+1. Which genres have the highest ratings and popularity metrics?
+2. How has the dominance of genres evolved from 1980 to 2023?
+3. What correlations exist between genre, release frequency, and audience reception?
 
-1. In VS Code, select File - Open Folder.
+Value:
 
-1. Select your vscode-projects folder, then click the Select Folder button on Windows, or Open button on Mac.
+The tool supports game designers, publishers, and market analysts by informing strategic decisions regarding game development and promotional efforts.
 
-1. From the top menu in VS Code, select Terminal > New Terminal to open the terminal.
+## Hypotheses and Validation
 
-1. In the terminal, type git clone followed by the URL of your GitHub repository. Then hit Enter. This command will download all the files in your GitHub repository into your vscode-projects folder.
+* Hypothesis 1: "Action and Adventure genres have dominated the video game industry due to consistently high ratings and playtime across decades."
+* Validation: Calculate average ratings and total playtime for each genre across the dataset, then visualize trends over time using a line plot and compare genre counts with a bar plot.
+* Hypothesis 2: "Niche genres (e.g., Simulation, Strategy) show rising popularity in recent years based on increasing ratings and playtime."
+* Validation: Filter data for the last decade (2013–2023), compute rating and playtime growth rates, and use a scatter plot to correlate these metrics with genre frequency.
 
-1. In VS Code, select File > Open Folder again.
+## Project Plan
+High-Level Steps:
+1. Data Collection & Cleaning:
 
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click Select Folder.
+* Import the dataset.
+* Clean and preprocess data (handle missing values, standardize genre names, etc.).
 
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate from each other. You need to create your virtual environment, also called a venv, and then ensure that it is activated any time you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select Command Palette to open the VS Code command palette.
+2. Exploratory Data Analysis (EDA):
 
-1. In the command palette, type: create environment and select Python: Create Environment…
+* Conduct descriptive statistics and initial visualizations to understand data distribution.
 
-1. Choose Venv from the dropdown list.
+3. Hypothesis Testing:
 
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
+* Validate hypotheses using regression analysis, correlation metrics, and visualizations.
 
-1. DO NOT click the box next to requirements.txt, as you need to do more steps before you can install your dependencies. Click OK.
+4. Dashboard Development:
 
-1. You will see a .venv folder appear in the file explorer pane to show that the virtual environment has been created.
+* Create interactive visualizations (line plots, bar plots, scatter plots, heatmaps) using Plotly, Matplotlib, or Seaborn.
+* Develop a user-friendly dashboard using Streamlit.
 
-1. Important: Please add the .venv to your .gitignore file
+5. Deployment & Evaluation:
+* Deploy the dashboard (e.g., on Heroku).
+* Gather feedback from peers and iterate on improvements.
 
-1. Return to the terminal by clicking on the TERMINAL tab or click on the Terminal menu and choose New Terminal if no terminal is currently open.
+Data Management:
+Collection: Data sourced from Kaggle.
 
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
- `pip3 install -r requirements.txt`
+Processing: Cleaned using Pandas in Jupyter Notebooks.
 
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
+Storage: Organized into dedicated folders with version control via Git.
 
-1. Click the kernel button and choose Python Environments.
+Interpretation: Insights are derived via statistical analysis and visualization.
 
-Note that the kernel says Python 3.12.2 as it inherits from the workspace, so it will be Python-3.12.2 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
+## Data Analysis and Visualization
+Techniques and Visualizations:
 
-## Cloud IDE Reminders
+* Line Plot: Displaying genre rating trends over the years.
+* Bar Plot: Showing top genres by rating count and release frequency.
+* Scatter Plot: Visualizing the relationship between genre and release frequency.
+* Heatmap: Presenting correlations between genres, ratings, and popularity metrics.
 
-To log into the Heroku toolbelt CLI:
+Rationale:
+These visualizations map directly to our business requirements by highlighting dominant genres, trends over time, and underlying correlations.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In the terminal, run `heroku_config`
-5. Paste in your API key when asked
+Analysis Methods:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+* Regression analysis for predictive insights.
+* Clustering techniques to group similar genres.
+* Correlation analysis to uncover interdependencies.
 
-* Set the runtime.txt Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
+## Analysis Techniques Used
+* Methods:
+* Descriptive Statistics (mean, median, standard deviation of ratings and playtime using NumPy).
+* Grouping and Aggregation (Pandas groupby for genre and decade summaries).
+* Trend Analysis (time-series analysis of ratings by release year).
+* Correlation Analysis (Seaborn heatmap for genre-platform interactions).
 
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+Limitations: Limited to historical data; lacks real-time player feedback.
+* Alternatives: Could incorporate web-scraped review data, but avoided due to complexity and scope.
+* Structure: Techniques applied sequentially—cleaning, summarizing, then visualizing—to ensure logical flow.
+* Justification: Structured to mirror real-world EDA workflows, starting with data understanding and ending with insights.
+* Data Limitations: Missing playtime for some games; filled with median values to avoid bias. No alternative datasets were needed.
+
+## Generative AI Use
+* Ideation: Used AI (e.g., Grok) to brainstorm project ideas and refine business questions.
+* Design Thinking: AI suggested mapping visualizations to requirements, enhancing UX focus.
+* Code Optimization: AI provided snippets for efficient Pandas filtering and Plotly styling, documented in Jupyter comments.
+
+## Ethical Considerations
+* Data Privacy: Dataset is anonymized and publicly available, posing no privacy risks.
+* Bias: Older games may have fewer ratings due to less digital tracking; mitigated by focusing on relative trends.
+* Fairness: Ensured genre categorization reflects original data, avoiding subjective reclassification.
+* Legal/Social Issues: No legal concerns (public dataset); socially, insights avoid stereotyping genres or platforms.
+
+## Dashboard Design
+
+Pages and Widgets:
+
+* Home Page: Overview of the project with key insights.
+* Trend Analysis: Interactive line plots for genre trends over time.
+* Detailed Analysis: Multiple tabs featuring bar plots, scatter plots, and heatmaps.
+* Filters: Options to filter by year, genre, and platform.
+* Narrative Section: Textual summaries explaining visual insights for both technical and non-technical audiences.
+* Communication:
+The dashboard uses clear labels, tooltips, and legends to explain the data insights. Interactive elements help users dive deeper into the analysis.
+
+## Unfixed Bugs and Limitations
+* Rendering Issues: Some visualizations may render slowly on lower-end devices.
+* Data Gaps: Limited data for certain niche genres may affect analysis accuracy.
+* Known Bugs: Minor issues in interactive filtering are documented and planned for resolution in future updates.
+* Mitigation: Detailed documentation and planned roadmap for bug fixes.
+
+## Development Roadmap
+Challenges Faced:
+
+* Data cleaning complexities due to inconsistent genre labels.
+* Learning curve with advanced visualization libraries.
+
+Strategies and Future Plans:
+
+* Continue learning advanced data visualization techniques.
+* Integrate real-time data updates for the dashboard.
+* Explore additional machine learning models to enhance predictive capabilities.
+
+## Credits and Acknowledgements
+Content Sources:
+
+* Dataset provided by Popular Video Games 1980-2023 on Kaggle.
+* Visual design inspiration from various industry case studies.
+* Technical guidance and code snippets inspired by online tutorials (e.g., YouTube, Kaggle kernels).
+
+Acknowledgements:
+Special thanks to mentors, peers, and the data science community for feedback and support throughout this project.
